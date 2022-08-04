@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <!-- <button class="btn btn-primary my-5" (click)="homepage()">Home Page</button> -->
+      <button class="btn btn-primary float-end my-5" routerLink="/addUser">Add Employee</button>
+      <table class="table table-bordered table-stripped my-5">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>PHONE</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of EmployeeDetails">
+            <td> {{item.id}}</td>
+            <td> {{item.name}}</td>
+            <td> {{item.email}}</td>
+            <td> {{item.phone}}</td>
+            <td>
+              <button class="btn btn-primary m-2" [routerLink]="['/edit/'+item.id]">Edit</button>
+              <button class="btn btn-danger m-2" (click)="delete(item.id)">Delete</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
